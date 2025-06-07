@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ssr": "ng build && ng run firebase-learning:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:firebase-learning": "node dist/firebase-learning/server/server.mjs"
