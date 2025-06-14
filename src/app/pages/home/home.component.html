@@ -1,0 +1,18 @@
+<div class="flex flex-col items-center justify-center min-h-screen-minus-header bg-gray-100 p-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">Welcome to Your Dashboard!</h2>
+      <div *ngIf="user$ | async as user; else loading">
+        <p class="text-lg text-gray-700 mb-2">Hello, <span class="font-semibold">{{ user.displayName || user.email }}</span>!</p>
+        <p class="text-sm text-gray-500 mb-6">Your User ID (UID): <span class="font-mono bg-gray-200 px-2 py-1 rounded-md">{{ user.uid }}</span></p>
+        <button
+          (click)="onLogout()"
+          class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300"
+        >
+          Logout
+        </button>
+      </div>
+      <ng-template #loading>
+        <p class="text-gray-600">Loading user data...</p>
+      </ng-template>
+    </div>
+  </div>
