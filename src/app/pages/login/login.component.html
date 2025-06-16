@@ -1,0 +1,54 @@
+<div class="flex flex-col items-center justify-center min-h-screen-minus-header bg-gray-100 p-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
+        <form (ngSubmit)="onLogin()" class="space-y-4">
+            <div>
+                <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email:</label>
+                <input type="email" id="email" [(ngModel)]="email" name="email" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your email">
+            </div>
+            <div>
+                <label for="password" class="block text-gray-700 text-sm font-semibold mb-2">Password:</label>
+                <input type="password" id="password" [(ngModel)]="password" name="password" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter your password">
+            </div>
+            <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md shadow-md transition duration-300">
+                Login
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <button (click)="onGoogleLogin()"
+                class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md shadow-md flex items-center justify-center space-x-2 transition duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M19.23 9.458c0-.646-.056-1.264-.154-1.863H10v3.74h5.305c-.23 1.157-.923 2.133-1.954 2.793v2.42h3.11c1.82-1.68 2.87-4.14 2.87-7.09z"
+                        fill="#4285F4"></path>
+                    <path
+                        d="M10 19.998c2.72 0 5.01-1.026 6.68-2.82l-3.11-2.42c-.85.58-1.94 1.04-3.57 1.04-2.75 0-5.08-1.85-5.91-4.33H1.05v2.49c1.69 3.32 5.04 5.66 8.95 5.66z"
+                        fill="#34A853"></path>
+                    <path
+                        d="M4.09 11.998c-.19-.58-.3-1.19-.3-1.82s.11-1.24.3-1.82V5.86H1.05c-.65 1.28-.97 2.7-.97 4.14s.32 2.86.97 4.14L4.09 11.998z"
+                        fill="#FBBC05"></path>
+                    <path
+                        d="M10 3.82c1.49 0 2.83.6 3.88 1.51l2.76-2.69C15.01.99 12.72 0 10 0 6.04 0 2.69 2.34 1.01 5.66l3.08 2.41c.83-2.48 3.16-4.33 5.91-4.33z"
+                        fill="#EA4335"></path>
+                </svg>
+                <span>Sign in with Google</span>
+            </button>
+        </div>
+
+        <div *ngIf="errorMessage"
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mt-4 text-center">
+            {{ errorMessage }}
+        </div>
+
+        <p class="text-center text-gray-600 mt-6">
+            Don't have an account?
+            <a routerLink="/sign-up" class="text-blue-600 hover:underline">Register here</a>
+        </p>
+    </div>
+</div>
